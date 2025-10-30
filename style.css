@@ -1,97 +1,122 @@
-/* Reset & base */
+/* ---------------- RESET ---------------- */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  color: #1a1a1a;
-  font-size: 16px;
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  background: #fdfdfd;
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* ---------------- BODY & LAYOUT ---------------- */
+html, body {
+  height: 100%;
 }
 
-/* Banner Container */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f4f4f4;
+  color: #222;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------------- HEADER ---------------- */
+header {
+  background: #0b1a36;
+  color: #fff;
+  padding: 20px;
+  border-bottom: 4px solid #2d3e60;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-family: 'Impact', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e4e4e4;
+  text-shadow: 2px 2px 0px #111;
+}
+
+/* ---------------- NAVIGATION ---------------- */
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 5px 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #f4f4f4;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;
+}
+
+/* ---------------- BANNER ---------------- */
 .banner-container {
   position: relative;
-  text-align: center;
-  height: 300px;
+  width: 100%;
   overflow: hidden;
-  margin-bottom: 20px;
 }
 
-.banner-image {
+.header-banner {
   width: 100%;
-  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .banner-title {
-  position:absolute;
-  top: 10px;
-  left: 40px;
-  transform:none;
-  font-size: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
-  font-weight: 800;
+  font-family: 'Impact', sans-serif;
+  text-align: center;
+  font-size: 3rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  padding: 0 20px;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
-  .banner-container {
-    height: 200px;
-  }
-
-  .banner-title {
-    font-size: 45px;
-  }
+  .banner-title { font-size: 2rem; }
 }
 
-/* Navigation */
-.main-nav {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
+@media (max-width: 480px) {
+  .banner-title { font-size: 1.5rem; }
 }
 
-.nav-card {
-  background-color: #004080;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-card:hover,
-.nav-card:focus {
-  background-color: #0066cc;
-  transform: scale(1.05);
-  outline: none;
-}
-
-/* Instagram Link */
+/* ---------------- SOCIAL FEED ---------------- */
 .social-feed {
   text-align: center;
-  margin-bottom: 40px;
+  margin: 30px 0;
+  background-color: #0b1a36;
+  padding: 15px 0;
 }
 
 .ig-link {
-  color: #001f54;
+  color: white;
   text-decoration: none;
   font-weight: bold;
   padding: 10px 18px;
   border-radius: 30px;
   gap: 8px;
   box-shadow: 0 4px 10px rgba(225, 48, 108, 0.3);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s;
   align-items: center;
   display: inline-flex;
 }
@@ -100,378 +125,159 @@ body {
 .ig-link:focus {
   background-color: #e1306c;
   color: white;
-  outline: none;
+  transform: translateY(-2px);
 }
 
-/* Recap Section (Container only – no border here!) */
-.recap-section {
-  margin-bottom: 50px;
-  padding-left: 0; /* no padding needed now */
-}
-
-/* Recap Category – each section gets its own left border */
-.recap-category {
-  margin-bottom: 40px;
-  padding-left: 15px;
-  border-left: 3px solid #3c5fa3;
-}
-
-/* Recap Category Headings */
-.recap-category h3 {
-  color: #003366;
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #3c5fa3;
-  padding-bottom: 6px;
-}
-
-/* Recap Cards */
-.recap-card {
-  background-color: #f7faff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.07);
-  line-height: 1.6;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Images inside recap cards */
-.recap-card img {
+/* ---------------- FEATURED SECTION ---------------- */
+.featured {
   width: 100%;
-  height: auto;
-  margin: 10px auto;
-  display: block;
+  background: #f9f9f9;
+  padding: 40px 5vw;
+  box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
-  .recap-card img {
-    max-width: 220px;
-  }
+.featured-item {
+  width: 100%;
+  max-width: 1100px;
+  background: #fff;
+  padding: 25px 40px;
+  margin: 0 auto 25px auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+.featured-item h3 {
+  font-family: 'Impact', sans-serif;
+  color: #0b1a36;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #2d3e60;
+  padding-bottom: 5px;
+}
 
-.recap-card p {
+.featured-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.featured-item li {
+  margin-bottom: 10px;
+}
+
+.featured-item li a {
+  text-decoration: none;
+  color: #0b1a36;
+  transition: color 0.2s;
+}
+
+.featured-item li a:hover {
+  color: #ffcc00;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+  background: #fff;
+  color: #0b1a36;
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 3px solid #444;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-family: 'Impact', sans-serif;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ---------------- MAIN CONTENT ---------------- */
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 5vw;
+}
+
+.content {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.content section h3 {
+  font-family: 'Impact', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #2d3e60;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  color: #0b1a36;
+}
+
+/* ---------------- ARTICLES ---------------- */
+article {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 10px;
+}
+
+article:hover {
+  transform: scale(1.01);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+article h4 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+article p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* ---------------- INTERVIEWS ---------------- */
+.interview .byline {
+  color: #555;
+  font-size: 0.9rem;
   margin-bottom: 15px;
 }
 
-.recap-card:hover,
-.recap-card:focus-within {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-  outline: none;
-}
-
-/* Strong text inside recap */
-.recap-card strong {
-  color: #00264d;
-}
-
-/* Horizontal Rule */
-hr {
-  margin: 35px 0;
-  border: none;
-  border-top: 3px solid #ddd;
-}
-
-/* Event List */
-.event-list {
-  margin: 20px;
-  padding: 25px;
-  background: #00264d;
-  border-radius: 6px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  color: black;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-bottom: 40px;
-}
-
-.event-list:hover,
-.event-list:focus-within {
-  background-color: #0066cc;
-  transform: scale(1.05);
-  outline: none;
-}
-
-.event-list h2 {
-  margin-top: 0;
-  font-weight: 700;
-  font-size: 1.8rem;
-}
-
-.event-list ul {
-  padding-left: 20px;
-  list-style: square;
-  margin-top: 15px;
-}
-
-.event-list li {
-  padding: 12px 0;
-  font-weight: 500;
-}
-
-/* Container for the cards — enables horizontal scroll and snapping */
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  padding: 16px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Each card inside the carousel */
-.bison-buzz-carousel,
-.card-carousel {
-  flex: 0 0 auto; /* Prevent cards from shrinking or growing */
-  scroll-snap-align: start; /* Snap each card to start */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  width: 300px; /* fixed width for cards */
-  background-color: white;
-}
-
-/* Base Carousel Container */
-.bison-lens-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  padding: 16px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  background-color: #00264d;
-  scroll-padding-left: 20px;
-  border-radius: 10px;
-  margin-bottom: 24px;
-}
-
-/* Card Style */
-.central-buzz-carousel .card,
-.sports-carousel .card,
-.school-carousel .card,
-.bison-lens-carousel .card {
-  min-width: 180px;
-  max-width: 240px;
-  background-color: white;
-  color: black;
-  padding: 12px;
-  flex-shrink: 0;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  scroll-snap-align: center;
-  transition: transform 0.2s ease-in-out;
-}
-
-/* Fix: add missing comma here */
-.central-buzz-carousel .card:hover,
-.sports-carousel .card:hover,
-.school-carousel .card:hover,
-.bison-lens-carousel .card:hover {
-  transform: translateY(-4px);
-}
-
-/* Image Style */
-.sports-carousel .card img,
-.school-carousel .card img,
-.bison-lens-carousel .card img {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  display: block;
-}
-
-/* Optional: Text Centering Inside Card */
-.card p {
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-/* Responsive tweaks for smaller screens */
-@media (max-width: 600px) {
-  .main-nav {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .nav-card {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-
-  .bison-lens-carousel .card {
-    min-width: 150px;
-    max-width: 180px;
-  }
-
-  .banner-title {
-    font-size: 28px;
-  }
-}
-
-/* Central Buzz container */
-.central-buzz {
-  padding: 40px;
-  background-color: #00264d;
-  color: white;
-  text-align: center;
-}
-
-/* Headings */
-.central-buzz h1 {
-  font-size: 2rem;
+.qa p {
   margin-bottom: 10px;
-  text-align: left;
-  color: white;
+  line-height: 1.6;
 }
 
-.central-buzz h2 {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+.question {
+  color: #0b1a36;
+  font-weight: bold;
 }
 
-/* Card container (carousel style) */
-.central-buzz-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+.answer {
+  color: #444;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  background: #0b1a36;
+  color: #ddd;
+  text-align: center;
   padding: 20px;
+  border-top: 4px solid #2d3e60;
+  margin-top: auto;
 }
 
-/* Each card */
-.central-card {
-  background-color: white;
-  padding: 20px;
-  border-radius: 1px;
-  min-width: 250px;
-  max-width: 300px; 
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  color: black;
-  overflow-x: auto; 
+footer p {
+  font-size: 0.9rem;
 }
-
-/* Text inside card */
-.article-buzz {
-  font-size: 1rem;
-  margin-top: 10px;
-  text-align: left;
-}
-
-/* Responsive central buzz cards */
-@media (max-width: 600px) {
-  .central-buzz-carousel {
-    flex-direction: column;
-    overflow-x: visible;
-  }
-
-  .central-card {
-    min-width: 100%;
-    box-sizing: border-box;
-  }
-}
-
-/* ---------------- Dark Mode Styles ---------------- */
-
-body.dark-mode {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-body.dark-mode .banner-title,
-body.dark-mode .nav-card {
-  color: #80b3ff;
-  background-color: #003366;
-}
-
-body.dark-mode .nav-card:hover,
-body.dark-mode .nav-card:focus {
-  background-color: #0055aa;
-}
-
-body.dark-mode .recap-category {
-  border-left-color: #80b3ff;
-}
-
-body.dark-mode .recap-category h3 {
-  color: #a0c8ff;
-  border-bottom-color: #80b3ff;
-}
-
-body.dark-mode .recap-card {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.9);
-}
-
-body.dark-mode .recap-card strong {
-  color: #aad8ff;
-}
-
-body.dark-mode .event-list {
-  background-color: #003366;
-  color: black;
-}
-
-body.dark-mode .event-list:hover,
-body.dark-mode .event-list:focus-within {
-  background-color: #0055aa;
-}
-
-body.dark-mode .central-buzz {
-  background-color: #001933;
-  color: #b0cfff;
-}
-
-body.dark-mode .central-buzz h1,
-body.dark-mode .central-buzz h2 {
-  color: #b0cfff;
-}
-
-body.dark-mode .central-card {
-  background-color: #121212;
-  color: #e0e0e0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
-}
-
-body.dark-mode .social-feed a {
-  color: #aad8ff;
-}
-
-body.dark-mode .social-feed a:hover,
-body.dark-mode .social-feed a:focus {
-  color: #e0e0e0;
-}
-
-/* Optional: style the dark mode toggle button */
-#toggleDarkMode {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #004080;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 1000;
-}
-
-#toggleDarkMode:hover,
-#toggleDarkMode:focus {
-  background-color: #0066cc;
-  outline: none;
-}
-
-/* End of CSS */
